@@ -1,0 +1,44 @@
+# Site settings
+title: "HTL Leonding Absolventen"
+description: "Absolventen-Plattform der HTL Leonding - News, Veranstaltungen und Partnerfirmen"
+url: "https://htl-leo.github.io"
+baseurl: "/absolventen"
+
+# Build settings
+markdown: kramdown
+permalink: /:categories/:year/:month/:day/:title/
+
+# Collections
+collections:
+  veranstaltungen:
+    output: true
+    permalink: /veranstaltungen/:path/
+  partnerfirmen:
+    output: true
+    permalink: /partnerfirmen/:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "HTL Leonding Absolventen"
+  - scope:
+      path: ""
+      type: "veranstaltungen"
+    values:
+      layout: "veranstaltung"
+  - scope:
+      path: ""
+      type: "partnerfirmen"
+    values:
+      layout: "partner"
+
+# Exclude files
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor

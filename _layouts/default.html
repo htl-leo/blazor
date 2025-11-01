@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="{{ '/' | relative_url }}">
+                        <h1>HTL Leonding</h1>
+                        <p class="tagline">Absolventen</p>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+                        <li><a href="{{ '/news/' | relative_url }}">News</a></li>
+                        <li><a href="{{ '/veranstaltungen/' | relative_url }}">Veranstaltungen</a></li>
+                        <li><a href="{{ '/partnerfirmen/' | relative_url }}">Partnerfirmen</a></li>
+                        <li><a href="{{ '/kontakt/' | relative_url }}">Kontakt</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-content">
+        {{ content }}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>HTL Leonding Absolventen</h3>
+                    <p>Die Plattform für Absolventen der HTBLA Leonding</p>
+                    <p>
+                        <strong>HTBLA Leonding</strong><br>
+                        Limesstraße 12-14<br>
+                        A-4060 Leonding
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>
+                        Tel: (0732) 67 33 68 – 0<br>
+                        E-Mail: office@htl-leonding.ac.at
+                    </p>
+                    <p>
+                        <a href="https://www.absleo.at/" target="_blank">Absolventenverband</a><br>
+                        <a href="https://www.htl-leonding.at/" target="_blank">HTL Leonding</a>
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Social Media</h3>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/htl-leonding" target="_blank">LinkedIn</a>
+                        <a href="https://www.facebook.com/htlleonding" target="_blank">Facebook</a>
+                        <a href="https://www.instagram.com/htlleonding" target="_blank">Instagram</a>
+                        <a href="https://www.youtube.com/c/HTBLALeonding" target="_blank">YouTube</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; {{ 'now' | date: "%Y" }} HTL Leonding Absolventen. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,114 @@
+---
+layout: default
+title: Home
+---
+
+<section class="hero">
+    <div class="container">
+        <h1>HTL Leonding Absolventen</h1>
+        <p>Willkommen auf der offiziellen Plattform der Absolventen der HTBLA Leonding. Hier finden Sie aktuelle News, Veranstaltungen und Informationen zu unseren Partnerfirmen.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Aktuelle News</h2>
+            <p class="section-subtitle">Die neuesten Nachrichten aus unserer Community</p>
+        </div>
+        
+        <div class="grid">
+            {% for post in site.posts limit:3 %}
+            <article class="card">
+                <h3 class="card-title">{{ post.title }}</h3>
+                <div class="card-meta">
+                    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d.%m.%Y" }}</time>
+                </div>
+                <p class="card-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+                <a href="{{ post.url | relative_url }}" class="card-link">Weiterlesen</a>
+            </article>
+            {% endfor %}
+        </div>
+        
+        <div class="text-center mt-2">
+            <a href="{{ '/news/' | relative_url }}" class="btn">Alle News anzeigen</a>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="background-color: var(--light-bg);">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Kommende Veranstaltungen</h2>
+            <p class="section-subtitle">Bleiben Sie auf dem Laufenden mit unseren Events</p>
+        </div>
+        
+        <div class="grid">
+            {% assign sorted_events = site.veranstaltungen | sort: 'datum' %}
+            {% for event in sorted_events limit:3 %}
+            <article class="card">
+                <h3 class="card-title">{{ event.title }}</h3>
+                <div class="card-meta">
+                    {% if event.datum %}
+                    <strong>Datum:</strong> {{ event.datum }}<br>
+                    {% endif %}
+                    {% if event.ort %}
+                    <strong>Ort:</strong> {{ event.ort }}
+                    {% endif %}
+                </div>
+                <p class="card-excerpt">{{ event.excerpt | strip_html | truncatewords: 20 }}</p>
+                <a href="{{ event.url | relative_url }}" class="card-link">Details anzeigen</a>
+            </article>
+            {% endfor %}
+        </div>
+        
+        <div class="text-center mt-2">
+            <a href="{{ '/veranstaltungen/' | relative_url }}" class="btn">Alle Veranstaltungen</a>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Unsere Partnerfirmen</h2>
+            <p class="section-subtitle">Unternehmen, die unsere Absolventen unterstützen</p>
+        </div>
+        
+        <div class="partner-grid">
+            {% for partner in site.partnerfirmen limit:6 %}
+            <article class="partner-card">
+                {% if partner.logo %}
+                <img src="{{ partner.logo | relative_url }}" alt="{{ partner.title }} Logo">
+                {% endif %}
+                <h3>{{ partner.title }}</h3>
+                <a href="{{ partner.url | relative_url }}" class="card-link">Mehr erfahren</a>
+            </article>
+            {% endfor %}
+        </div>
+        
+        <div class="text-center mt-2">
+            <a href="{{ '/partnerfirmen/' | relative_url }}" class="btn">Alle Partnerfirmen</a>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="background-color: var(--light-bg);">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Über uns</h2>
+        </div>
+        
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                Die HTBLA Leonding ist eine der führenden technischen Schulen Österreichs. 
+                Unsere Absolventen-Plattform vernetzt ehemalige Schüler, bietet Einblicke in 
+                Karrieremöglichkeiten und fördert den Austausch zwischen Absolventen und der Schule.
+            </p>
+            <div class="mt-2">
+                <a href="https://www.htl-leonding.at/" target="_blank" class="btn">HTL Leonding besuchen</a>
+                <a href="https://www.absleo.at/" target="_blank" class="btn" style="margin-left: 1rem;">Absolventenverband</a>
+            </div>
+        </div>
+    </div>
+</section>

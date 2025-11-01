@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<article class="veranstaltung">
+    <div class="container">
+        <header class="veranstaltung-header">
+            <h1 class="veranstaltung-title">{{ page.title }}</h1>
+            <div class="veranstaltung-meta">
+                {% if page.datum %}
+                <div class="event-date">
+                    <strong>Datum:</strong> {{ page.datum }}
+                </div>
+                {% endif %}
+                {% if page.ort %}
+                <div class="event-location">
+                    <strong>Ort:</strong> {{ page.ort }}
+                </div>
+                {% endif %}
+            </div>
+        </header>
+        
+        <div class="veranstaltung-content">
+            {{ content }}
+        </div>
+        
+        {% if page.anmeldung %}
+        <div class="event-registration">
+            <a href="{{ page.anmeldung }}" class="btn btn-primary">Jetzt anmelden</a>
+        </div>
+        {% endif %}
+        
+        <footer class="veranstaltung-footer">
+            <a href="{{ '/veranstaltungen/' | relative_url }}" class="back-link">← Zurück zu Veranstaltungen</a>
+        </footer>
+    </div>
+</article>

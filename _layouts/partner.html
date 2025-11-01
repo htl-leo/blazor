@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<article class="partner">
+    <div class="container">
+        <header class="partner-header">
+            <h1 class="partner-title">{{ page.title }}</h1>
+            {% if page.logo %}
+            <div class="partner-logo">
+                <img src="{{ page.logo | relative_url }}" alt="{{ page.title }} Logo">
+            </div>
+            {% endif %}
+        </header>
+        
+        <div class="partner-content">
+            {% if page.website %}
+            <p class="partner-website">
+                <strong>Website:</strong> <a href="{{ page.website }}" target="_blank">{{ page.website }}</a>
+            </p>
+            {% endif %}
+            
+            {% if page.kontakt %}
+            <div class="partner-kontakt">
+                <h3>Kontakt</h3>
+                <p>{{ page.kontakt }}</p>
+            </div>
+            {% endif %}
+            
+            {{ content }}
+        </div>
+        
+        <footer class="partner-footer">
+            <a href="{{ '/partnerfirmen/' | relative_url }}" class="back-link">← Zurück zu Partnerfirmen</a>
+        </footer>
+    </div>
+</article>

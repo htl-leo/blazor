@@ -1,0 +1,29 @@
+---
+layout: default
+title: News
+---
+
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <h1 class="section-title">News</h1>
+            <p class="section-subtitle">Aktuelle Nachrichten aus der HTL Leonding Absolventen-Community</p>
+        </div>
+        
+        <div class="news-list">
+            {% for post in site.posts %}
+            <article class="news-item">
+                <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+                <div class="card-meta">
+                    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d.%m.%Y" }}</time>
+                    {% if post.author %}
+                    <span> | {{ post.author }}</span>
+                    {% endif %}
+                </div>
+                <p>{{ post.excerpt | strip_html | truncatewords: 50 }}</p>
+                <a href="{{ post.url | relative_url }}" class="card-link">Weiterlesen</a>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>

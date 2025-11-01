@@ -1,0 +1,32 @@
+---
+layout: default
+title: Veranstaltungen
+---
+
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <h1 class="section-title">Veranstaltungen</h1>
+            <p class="section-subtitle">Kommende Events für HTL Leonding Absolventen</p>
+        </div>
+        
+        <div class="event-list">
+            {% assign sorted_events = site.veranstaltungen | sort: 'datum' %}
+            {% for event in sorted_events %}
+            <article class="event-item">
+                <h2><a href="{{ event.url | relative_url }}">{{ event.title }}</a></h2>
+                <div class="card-meta">
+                    {% if event.datum %}
+                    <strong>📅 Datum:</strong> {{ event.datum }}
+                    {% endif %}
+                    {% if event.ort %}
+                    | <strong>📍 Ort:</strong> {{ event.ort }}
+                    {% endif %}
+                </div>
+                <p>{{ event.excerpt | strip_html | truncatewords: 40 }}</p>
+                <a href="{{ event.url | relative_url }}" class="card-link">Details und Anmeldung</a>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>

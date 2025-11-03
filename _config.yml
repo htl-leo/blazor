@@ -1,6 +1,6 @@
 # Site settings
-title: "HTL Leonding Absolventen"
-description: "Absolventen-Plattform der HTL Leonding - News, Veranstaltungen und Partnerfirmen"
+title: "HTL Leonding 78ABKIF"
+description: "Blazor Server Plattform der HTL Leonding - Kurse und Demos"
 url: "https://htl-leo.github.io"
 baseurl: "/blazor"
 
@@ -27,7 +27,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "HTL Leonding Absolventen"
+      author: "HTL Leonding 78ABKIF"
   - scope:
       path: ""
       type: "veranstaltungen"

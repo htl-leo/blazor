@@ -10,34 +10,12 @@ permalink: /:categories/:year/:month/:day/:title/
 
 # Collections
 collections:
-  veranstaltungen:
-    output: true
-    permalink: /veranstaltungen/:path/
-  partnerfirmen:
-    output: true
-    permalink: /partnerfirmen/:path/
   kurse:
     output: true
     permalink: /kurse/:path/
 
 # Defaults
 defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      author: "HTL Leonding 78ABKIF"
-  - scope:
-      path: ""
-      type: "veranstaltungen"
-    values:
-      layout: "veranstaltung"
-  - scope:
-      path: ""
-      type: "partnerfirmen"
-    values:
-      layout: "partner"
   - scope:
       path: ""
       type: "kurse"

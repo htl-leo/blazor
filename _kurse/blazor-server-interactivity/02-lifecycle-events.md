@@ -790,6 +790,6 @@ Im nächsten Modul werden wir praktisch arbeiten und **drei verschiedene Impleme
 
 ---
 
-[← Zurück zu Modul 1](01-clean-architecture-setup) | [Weiter zu Modul 3: IoT Measurements →](03-measurements-implementation) | [Zurück zur Kursübersicht](../blazor-server-interactivity)
+[← Zurück zu Modul 1](../01-clean-architecture-setup) | [Weiter zu Modul 3: IoT Measurements →](../03-measurements-implementation) | [Zurück zur Kursübersicht](../blazor-server-interactivity)
 
 **Kontakt:** kurse@htl-absolventen.at

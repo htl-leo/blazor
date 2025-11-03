@@ -1272,5 +1272,3 @@ Im produktiven Einsatz können Sie erweitern:
 ---
 
 [← Zurück zu Modul 2](../02-lifecycle-events) | [Zurück zur Kursübersicht](../blazor-server-interactivity)
-
-**Kontakt:** kurse@htl-absolventen.at

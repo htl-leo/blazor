@@ -433,5 +433,3 @@ Im nächsten Modul werden wir uns detailliert mit den **Lifecycle Events** von B
 ---
 
 [Weiter zu Modul 2: Page Lifecycle Events & Prerendering →](../02-lifecycle-events)
-
-**Kontakt:** kurse@htl-absolventen.at

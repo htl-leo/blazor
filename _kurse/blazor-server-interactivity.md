@@ -148,5 +148,3 @@ Dieser Kurs ist in mehrere Module unterteilt:
 3. [**Modul 3: IoT Measurements - Drei Implementierungsansätze**](03-measurements-implementation) - Praktische Übung mit drei Performance-Optimierungsansätzen
 
 ---
-
-**Kontakt:** kurse@htl-absolventen.at

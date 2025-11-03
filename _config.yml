@@ -2,7 +2,7 @@
 title: "HTL Leonding Absolventen"
 description: "Absolventen-Plattform der HTL Leonding - News, Veranstaltungen und Partnerfirmen"
 url: "https://htl-leo.github.io"
-baseurl: "/absolventen"
+baseurl: "/blazor"
 
 # Build settings
 markdown: kramdown

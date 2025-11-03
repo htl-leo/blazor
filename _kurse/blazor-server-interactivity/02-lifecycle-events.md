@@ -1,7 +1,6 @@
 ---
 layout: kurs
 title: "Modul 2: Page Lifecycle Events & Prerendering"
-dozent: "HTL Leonding"
 kurs: "Blazor Server Interactivity"
 ---
 

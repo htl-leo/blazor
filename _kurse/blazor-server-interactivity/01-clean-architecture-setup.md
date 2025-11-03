@@ -1,7 +1,6 @@
 ---
 layout: kurs
 title: "Modul 1: Setup auf Clean Architecture Stack"
-dozent: "HTL Leonding"
 kurs: "Blazor Server Interactivity"
 ---
 

@@ -1,9 +1,6 @@
 ---
 layout: kurs
 title: "Blazor Server Interactivity"
-dozent: "HTL Leonding"
-dauer: "8 Stunden"
-level: "Fortgeschritten"
 ---
 
 Ein umfassender Kurs über Blazor Server und die Entwicklung interaktiver Webanwendungen mit .NET.

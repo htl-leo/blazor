@@ -1,7 +1,6 @@
 ---
 layout: kurs
 title: "Modul 3: IoT Measurements - Drei Implementierungsansätze"
-dozent: "HTL Leonding"
 kurs: "Blazor Server Interactivity"
 ---
 

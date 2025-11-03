@@ -554,15 +554,21 @@ public partial class MeasurementsStream : ComponentBase, IDisposable
 ### Die ultimative Lösung
 
 Die beste Performance erreichen wir durch:
-1. **Server-seitiges Paging**: Nur die aktuelle Seite wird geladen (z.B. 20 Einträge)
+1. **Server-seitiges Paging**: Nur die aktuelle Seite wird geladen (z.B. 50 Einträge)
 2. **Filterung**: Benutzer kann nach Location und Sensor filtern
 3. **MudBlazor DataGrid**: Professionelle UI-Komponente mit built-in Features
+
+> Hinweis bei 40.000+ Datensätzen:
+> - Verwenden Sie konsequent Server-seitiges Paging (typisch 50 Zeilen pro Seite)
+> - Laden Sie nur die Spalten, die Sie anzeigen (DTO-Projektion)
+> - Vermeiden Sie `StateHasChanged()` pro Datensatz; UI-Updates in Batches
+> - Stellen Sie sicher, dass passende Indizes existieren (siehe unten)
 
 **Prinzip:**
 ```
 Simple:    Lade 10.000 Einträge → Zeige 10.000 Einträge
 Streaming: Lade 10.000 Einträge → Zeige progressiv
-Paging:    Lade 20 Einträge → Zeige 20 Einträge ← Perfekt!
+Paging:    Lade 50 Einträge → Zeige 50 Einträge ← Perfekt!
 ```
 
 ### Implementation
@@ -674,15 +680,15 @@ public sealed class GetMeasurementsBySensorIdPagedQueryHandler(IUnitOfWork uow)
         GetMeasurementsBySensorIdPagedQuery request, 
         CancellationToken cancellationToken)
     {
-        var page = request.Page < 1 ? 1 : request.Page;
-        var pageSize = request.PageSize < 1 ? 20 : request.PageSize;
+    var page = request.Page < 1 ? 1 : request.Page;
+    var pageSize = request.PageSize < 1 ? 50 : request.PageSize; // 40k+ Datensätze: 50 ist ein guter Default
         var skip = (page - 1) * pageSize;
         
         // Nur die Gesamtanzahl für den Sensor
         var total = await uow.Measurements.CountBySensorIdAsync(
             request.SensorId, cancellationToken);
         
-        // Nur die aktuelle Seite laden (z.B. 20 Einträge)
+        // Nur die aktuelle Seite laden (z.B. 50 Einträge)
         var items = await uow.Measurements.GetBySensorIdPagedAsync(
             request.SensorId, skip, pageSize, cancellationToken);
         
@@ -716,12 +722,38 @@ public async Task<IReadOnlyCollection<Measurement>> GetBySensorIdPagedAsync(
 {
     return await _context.Measurements
         .Where(m => m.SensorId == sensorId)
+        .AsNoTracking() // 40k+ Datensätze: Tracking vermeiden
         .OrderByDescending(m => m.Timestamp)
         .Skip(skip)
         .Take(take)
         .ToListAsync(cancellationToken);
 }
 ```
+
+> Optional: Direkt im Repository in DTOs projizieren, um Transfer und Materialisierung zu reduzieren:
+>
+> ```csharp
+> return await _context.Measurements
+>     .Where(m => m.SensorId == sensorId)
+>     .OrderByDescending(m => m.Timestamp)
+>     .Skip(skip)
+>     .Take(take)
+>     .Select(m => new GetMeasurementDto(m.Id, m.SensorId, m.Value, m.Timestamp))
+>     .AsNoTracking()
+>     .ToListAsync(cancellationToken);
+> ```
+
+#### SQL Server: Index-Empfehlungen für hohe Performance
+
+Für Abfragen nach Sensor und absteigendem Zeitstempel empfiehlt sich ein zusammengesetzter Index:
+
+```sql
+CREATE INDEX IX_Measurements_Sensor_Timestamp
+ON dbo.Measurements (SensorId, Timestamp DESC)
+INCLUDE (Value);
+```
+
+Dieser Index beschleunigt sowohl `COUNT BY SensorId` als auch das Paging (`ORDER BY Timestamp DESC OFFSET .. FETCH`).
 
 #### 6. Sensors Query für Dropdown
 
@@ -831,7 +863,7 @@ Erstellen Sie `Components/Pages/MeasurementsMudDataGrid.razor`:
                  FixedHeader="true"
                  Height="600px"
                  PageSizeOptions="new int[] { 10, 20, 50, 100 }"
-                 RowsPerPage="20">
+                 RowsPerPage="50">
         <Columns>
             <TemplateColumn T="GetMeasurementDto" Title="Date">
                 <CellTemplate Context="ctx">

@@ -96,14 +96,16 @@ public partial class LifecycleDemo : IDisposable
     // 1. SetParametersAsync - Wird als ERSTES aufgerufen
     public override async Task SetParametersAsync(ParameterView parameters)
     {
+        // WICHTIG: base.SetParametersAsync() MUSS VOR allen await-Aufrufen kommen!
+        // Der ParameterView läuft ab und kann nicht nach einem await verwendet werden.
+        await base.SetParametersAsync(parameters);
+
         var timestamp = DateTime.Now.ToString("HH:mm:ss.fff");
         var message = $"[{timestamp}] [{instanceId:N}] 1. SetParametersAsync()";
         
         Console.WriteLine(message);
         await LogToConsole(message);
         eventLog.Add(message);
-
-        await base.SetParametersAsync(parameters);
     }
 
     // 2. OnInitialized - Synchrone Initialisierung
@@ -456,6 +458,28 @@ In der Komponente:
 
 ## Best Practices für Prerendering
 
+### ✅ DO: SetParametersAsync korrekt überschreiben
+
+```csharp
+public override async Task SetParametersAsync(ParameterView parameters)
+{
+    // ✅ KRITISCH: base.SetParametersAsync() VOR allen await-Aufrufen!
+    await base.SetParametersAsync(parameters);
+    
+    // Danach können Sie asynchrone Operationen durchführen
+    var timestamp = DateTime.Now.ToString("HH:mm:ss.fff");
+    await LogToConsole($"Parameters set at {timestamp}");
+}
+```
+
+**Grund:** Der `ParameterView` läuft nach dem ersten `await` ab und kann nicht mehr gelesen werden. Dies führt zu folgendem Fehler:
+
+```
+System.InvalidOperationException: The ParameterView instance can no longer be read 
+because it has expired. ParameterView can only be read synchronously and must not 
+be stored for later use.
+```
+
 ### ✅ DO: Prerendering bewusst nutzen
 
 ```csharp
@@ -471,6 +495,8 @@ protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         // JS-Calls nur hier
         await JSRuntime.InvokeVoidAsync("initializeMap", "mapDiv");
+    }
+}
     }
 }
 ```
@@ -501,6 +527,21 @@ private StateContainer State { get; set; } = default!;
 protected override void OnInitialized()
 {
     State.Counter = 42; // Wird zwischen Instanzen geteilt
+}
+```
+
+### ❌ DON'T: SetParametersAsync falsch überschreiben
+
+```csharp
+public override async Task SetParametersAsync(ParameterView parameters)
+{
+    var timestamp = DateTime.Now.ToString("HH:mm:ss.fff");
+    
+    // ❌ FEHLER: await vor base.SetParametersAsync()!
+    await LogToConsole($"Setting parameters at {timestamp}");
+    
+    // ParameterView ist jetzt abgelaufen! → InvalidOperationException
+    await base.SetParametersAsync(parameters);
 }
 ```
 

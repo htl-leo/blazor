@@ -61,7 +61,7 @@ Bei großen Datenmengen führt das synchrone Laden aller Datensätze zu langen W
 - Benutzer wartet 5-10 Sekunden
 - Dann erscheint eine riesige Tabelle auf einmal
 
-### Implementation
+### Implementierung
 
 #### 1. Query und Handler erstellen
 
@@ -240,7 +240,7 @@ public partial class MeasurementsSimple : ComponentBase
 }
 ```
 
-### Test der Implementation
+### Test der Implementierung
 
 1. Starten Sie die Anwendung: `dotnet run`
 2. Navigieren Sie zu `/measurements-simple`
@@ -311,7 +311,7 @@ Streaming:     [Zeige ersten Batch] -> [Zeige mehr] -> [Zeige mehr] -> ...
                ↑ 0.5s                  ↑ +0.3s        ↑ +0.3s
 ```
 
-### Implementation
+### Implementierung
 
 #### 1. Streaming Query erstellen
 
@@ -530,7 +530,7 @@ public partial class MeasurementsStream : ComponentBase, IDisposable
 }
 ```
 
-### Test der Streaming-Implementation
+### Test der Streaming-Implementierung
 
 1. Navigieren Sie zu `/measurements-stream`
 2. Beobachten Sie:
@@ -593,7 +593,7 @@ Streaming: Lade 10.000 Einträge → Zeige progressiv
 Paging:    Lade 50 Einträge → Zeige 50 Einträge ← Perfekt!
 ```
 
-### Implementation
+### Implementierung
 
 #### 1. MudBlazor installieren
 
@@ -1066,7 +1066,7 @@ public partial class MeasurementsMudDataGrid : ComponentBase
 }
 ```
 
-### Test der Paging-Implementation
+### Test der Paging-Implementierung
 
 1. Navigieren Sie zu `/measurements-mud-datagrid`
 2. Wählen Sie eine Location aus (z.B. "Wien")

@@ -35,8 +35,8 @@ YourProject/
 │   └── Interfaces/                 # Application-Interfaces
 ├── Infrastructure/                  # Infrastructure Layer
 │   ├── Persistence/                # Datenbank-Zugriff
-│   │   ├── Repositories/           # Repository Implementations
-│   │   └── UnitOfWork/            # Unit of Work Implementation
+│   │   ├── Repositories/           # Repository Implementierungen
+│   │   └── UnitOfWork/            # Unit of Work Implementierung
 │   └── Services/                   # Infrastructure-Services
 └── WebApi/                         # Bestehende API (optional)
 ```

@@ -5,7 +5,7 @@ dozent: "HTL Leonding"
 kurs: "Blazor Server Interactivity"
 ---
 
-[← Zurück zur Kursübersicht](../)
+[← Zurück zur Kursübersicht](../blazor-server-interactivity)
 
 # Modul 1: Setup auf Clean Architecture Stack
 
@@ -432,6 +432,6 @@ Im nächsten Modul werden wir uns detailliert mit den **Lifecycle Events** von B
 
 ---
 
-[Weiter zu Modul 2: Page Lifecycle Events & Prerendering →](02-lifecycle-events)
+[Weiter zu Modul 2: Page Lifecycle Events & Prerendering →](../blazor-server-interactivity/02-lifecycle-events)
 
 **Kontakt:** kurse@htl-absolventen.at

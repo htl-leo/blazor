@@ -5,7 +5,7 @@ dozent: "HTL Leonding"
 kurs: "Blazor Server Interactivity"
 ---
 
-[← Zurück zur Kursübersicht](../)
+[← Zurück zur Kursübersicht](../blazor-server-interactivity)
 
 # Modul 2: Page Lifecycle Events & Prerendering
 
@@ -570,6 +570,6 @@ Im nächsten Modul werden wir uns mit **State Management** und **Component Commu
 
 ---
 
-[← Zurück zu Modul 1](01-clean-architecture-setup) | [Zurück zur Kursübersicht](../)
+[← Zurück zu Modul 1](../blazor-server-interactivity/01-clean-architecture-setup) | [Zurück zur Kursübersicht](../blazor-server-interactivity)
 
 **Kontakt:** kurse@htl-absolventen.at

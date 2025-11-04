@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6PGE1Dt7mVc=",
+  "dgSpecHash": "lYRWzkniE08=",
   "success": true,
-  "projectFilePath": "D:\\work\\digitalisierung_fuer_erwachsene\\absolventen\\Iot_MudDataGrid\\Blazor.Server\\Blazor.Server.csproj",
+  "projectFilePath": "D:\\work\\CSharp\\Blazor_2025_26\\Jekyll\\blazor\\Iot_MudDataGrid\\Blazor.Server\\Blazor.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\geral\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\geral\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

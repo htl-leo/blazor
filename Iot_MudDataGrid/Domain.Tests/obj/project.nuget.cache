@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BMnFGx8GYas=",
+  "dgSpecHash": "/7lO9iPwbqo=",
   "success": true,
-  "projectFilePath": "D:\\work\\digitalisierung_fuer_erwachsene\\absolventen\\Iot_MudDataGrid\\Domain.Tests\\Domain.Tests.csproj",
+  "projectFilePath": "D:\\work\\CSharp\\Blazor_2025_26\\Jekyll\\blazor\\Iot_MudDataGrid\\Domain.Tests\\Domain.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\geral\\.nuget\\packages\\microsoft.codecoverage\\17.11.1\\microsoft.codecoverage.17.11.1.nupkg.sha512",
     "C:\\Users\\geral\\.nuget\\packages\\microsoft.net.test.sdk\\17.11.1\\microsoft.net.test.sdk.17.11.1.nupkg.sha512",

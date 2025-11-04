@@ -3160,11 +3160,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\work\\digitalisierung_fuer_erwachsene\\absolventen\\Iot_MudDataGrid\\Blazor.Server\\Blazor.Server.csproj",
+      "projectUniqueName": "D:\\work\\CSharp\\Blazor_2025_26\\Jekyll\\blazor\\Iot_MudDataGrid\\Blazor.Server\\Blazor.Server.csproj",
       "projectName": "Blazor.Server",
-      "projectPath": "D:\\work\\digitalisierung_fuer_erwachsene\\absolventen\\Iot_MudDataGrid\\Blazor.Server\\Blazor.Server.csproj",
+      "projectPath": "D:\\work\\CSharp\\Blazor_2025_26\\Jekyll\\blazor\\Iot_MudDataGrid\\Blazor.Server\\Blazor.Server.csproj",
       "packagesPath": "C:\\Users\\geral\\.nuget\\packages\\",
-      "outputPath": "D:\\work\\digitalisierung_fuer_erwachsene\\absolventen\\Iot_MudDataGrid\\Blazor.Server\\obj\\",
+      "outputPath": "D:\\work\\CSharp\\Blazor_2025_26\\Jekyll\\blazor\\Iot_MudDataGrid\\Blazor.Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3186,11 +3186,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "D:\\work\\digitalisierung_fuer_erwachsene\\absolventen\\Iot_MudDataGrid\\Application\\Application.csproj": {
-              "projectPath": "D:\\work\\digitalisierung_fuer_erwachsene\\absolventen\\Iot_MudDataGrid\\Application\\Application.csproj"
+            "D:\\work\\CSharp\\Blazor_2025_26\\Jekyll\\blazor\\Iot_MudDataGrid\\Application\\Application.csproj": {
+              "projectPath": "D:\\work\\CSharp\\Blazor_2025_26\\Jekyll\\blazor\\Iot_MudDataGrid\\Application\\Application.csproj"
             },
-            "D:\\work\\digitalisierung_fuer_erwachsene\\absolventen\\Iot_MudDataGrid\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "D:\\work\\digitalisierung_fuer_erwachsene\\absolventen\\Iot_MudDataGrid\\Infrastructure\\Infrastructure.csproj"
+            "D:\\work\\CSharp\\Blazor_2025_26\\Jekyll\\blazor\\Iot_MudDataGrid\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "D:\\work\\CSharp\\Blazor_2025_26\\Jekyll\\blazor\\Iot_MudDataGrid\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }

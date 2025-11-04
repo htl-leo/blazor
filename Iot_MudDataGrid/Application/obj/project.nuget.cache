@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rjL+gyVy/BI=",
+  "dgSpecHash": "X7MZeQlRhh0=",
   "success": true,
-  "projectFilePath": "D:\\work\\digitalisierung_fuer_erwachsene\\absolventen\\Iot_MudDataGrid\\Application\\Application.csproj",
+  "projectFilePath": "D:\\work\\CSharp\\Blazor_2025_26\\Jekyll\\blazor\\Iot_MudDataGrid\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\geral\\.nuget\\packages\\fluentvalidation\\12.0.0\\fluentvalidation.12.0.0.nupkg.sha512",
     "C:\\Users\\geral\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\12.0.0\\fluentvalidation.dependencyinjectionextensions.12.0.0.nupkg.sha512",
